@@ -7,8 +7,9 @@ get '/' do
   jhash = JSON.parse(api_result)
 
   @gists = jhash.map{|gist| find_gist_description(gist) }
-  erb :'/gists/index'
+  jhash_to_gists(jhash)
 
+  erb :'/gists/index'
 end
 
 
