@@ -1,7 +1,7 @@
 get '/gists' do
-  gists = @client.gists
 
-  gists.each
+  @client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
+  @gists = parse_gists(@client.gists)
   erb :'/gists/index'
 end
 
