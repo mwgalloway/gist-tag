@@ -24,6 +24,8 @@ require 'bcrypt'
 
 require 'rest-client'
 
+require 'octokit'
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 

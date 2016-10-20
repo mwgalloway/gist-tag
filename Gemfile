@@ -18,6 +18,8 @@ gem 'bcrypt'
 
 gem 'rest-client'
 
+gem 'octokit'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

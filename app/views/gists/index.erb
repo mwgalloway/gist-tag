@@ -1,5 +1,5 @@
 <ul class="gists" id="<%= ENV["GITHUB_TOKEN"] %>">
-  <% @gist_names.each do |gist| %>
-  <li><a href=""><%= gist %></a></li>
+  <% @gists.each do |gist| %>
+  <li><a href=""><%= gist.name %></a></li>
   <% end %>
 </ul>
