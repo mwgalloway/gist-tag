@@ -1,10 +1,5 @@
 get '/' do
-  redirect '/gists'
+  @gists = Gist.all
+  @tags = Tag.all
+  erb :'/index'
 end
-
-# before '/' do
-#   @client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
-# end
-
-
-

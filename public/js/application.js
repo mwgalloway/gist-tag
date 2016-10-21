@@ -1,17 +1,16 @@
-// $(document).ready(function() {
+$(document).ready(function() {
+  $('.tag-box').on('click', 'a', function(e) {
+    e.preventDefault();
 
-//   githubToken = 'token ' + $(".gists").attr("id");
+    var $tagLink = $(this);
 
-//   indexRequest = $.ajax({
-//     url: "https://api.github.com/users/mwgalloway/gists",
-//     headers: { Authorization: githubToken }
-//   })
+    $.ajax({
+      url: $tagLink.attr('href')
+    })
+    .done(function(response) {
+      console.log('append!');
+      $('.gist-box').append(response);
+    })
+  })
 
-//   indexRequest.done(function(indexResponse){
-//     indexResponse.forEach(function(gist){
-
-//     })
-//   })
-
-
-// });
+});

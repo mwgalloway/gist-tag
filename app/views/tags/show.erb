@@ -1,6 +1,6 @@
 <h2><%= @tag.name %></h2>
 
-<ul>
+<ul class="tags">
   <% @tag.gists.each do |gist| %>
     <li>
       <a href="/gists/<%= gist.id %>"><%= gist.description %></a>
