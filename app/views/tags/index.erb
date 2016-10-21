@@ -1,0 +1,5 @@
+<ul class="tags">
+  <% @tags.each do |tag| %>
+  <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a> -<%= tag.gists.count %> gists</li>
+  <% end %>
+</ul>

@@ -1,0 +1,9 @@
+<h2><%= @tag.name %></h2>
+
+<ul>
+  <% @tag.gists.each do |gist| %>
+    <li>
+      <a href="/gists/<%= gist.id %>"><%= gist.description %></a>
+    </li>
+  <% end %>
+</ul>
