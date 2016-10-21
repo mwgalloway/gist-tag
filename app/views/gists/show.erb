@@ -1,6 +1,12 @@
 <h2><%= @gist.description %></h2>
 
-<form method="post" action="/tags">
+<ul>
+  <% @gist.tags.each do |tag| %>
+    <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+  <% end %>
+</ul>
+
+<form method="post" action="/gists/<%= @gist.id %>/tags">
   <input type="text" name="tags" placeholder="Tag1, tag2, tag3, etc.">
   <input type="submit" value="Add tags">
 </form>
