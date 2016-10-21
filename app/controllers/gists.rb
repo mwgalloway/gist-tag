@@ -7,7 +7,7 @@ end
 get '/gists/:id' do
   @gist = Gist.find_by(id: params[:id])
 
-  erb :'/gists/show'
+  erb :'/gists/show', layout: !request.xhr?
 end
 
 post '/gists/:id/tags' do
