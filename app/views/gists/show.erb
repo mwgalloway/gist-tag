@@ -1,5 +1,10 @@
 <h2><%= @gist.description %></h2>
 
+<form method="post" action="/tags">
+  <input type="text" name="tags" placeholder="Tag1, tag2, tag3, etc.">
+  <input type="submit" value="Add tags">
+</form>
+
 <ul>
   <% @gist.snippets.each do |snippet| %>
     <li><a href="<%= snippet.raw_url %>"><%= snippet.name %></a></li>
