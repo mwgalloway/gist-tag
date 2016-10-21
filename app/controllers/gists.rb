@@ -9,3 +9,14 @@ get '/gists/:id' do
 
   erb :'/gists/show'
 end
+
+post '/gists/:id/tags' do
+  @gist = Gist.find_by(id: params[:id])
+  @gist.tags += parse_tags(params[:tags])
+  if @gist.save
+    redirect "/gists/#{@gist.id}"
+  else
+    @errors = @gist.errors.full_messages
+    erb :'/gists/show'
+  end
+end
