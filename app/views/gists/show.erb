@@ -1,0 +1,7 @@
+<h2><%= @gist.description %></h2>
+
+<ul>
+  <% @gist.snippets.each do |snippet| %>
+    <li><a href="<%= snippet.raw_url %>"><%= snippet.name %></a></li>
+  <% end %>
+</ul>
