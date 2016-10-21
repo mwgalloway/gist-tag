@@ -8,7 +8,6 @@ $(document).ready(function() {
       url: $tagLink.attr('href')
     })
     .done(function(response) {
-      console.log('append!');
       $('.gist-box').append(response);
     })
   })
