@@ -1,13 +1,18 @@
 get '/gists' do
-  @client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
-  @gists = parse_gists(@client.gists)
-  erb :'/gists/index'
+  if request.xhr?
+    @gists = Gist.all
+    erb :'/gists/index', layout: false
+  else
+    @client = Octokit::Client.new(:access_token => ENV["GITHUB_TOKEN"])
+    @gists = parse_gists(@client.gists)
+    erb :'/gists/index'
+  end
 end
 
 get '/gists/:id' do
   @gist = Gist.find_by(id: params[:id])
 
-  erb :'/gists/show'
+  erb :'/gists/show', layout: !request.xhr?
 end
 
 post '/gists/:id/tags' do

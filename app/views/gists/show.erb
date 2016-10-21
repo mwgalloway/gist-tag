@@ -1,4 +1,4 @@
-<h2><%= @gist.description %></h2>
+<h4><%= @gist.description %></h4>
 
 <ul>
   <% @gist.tags.each do |tag| %>
@@ -6,13 +6,13 @@
   <% end %>
 </ul>
 
-<form method="post" action="/gists/<%= @gist.id %>/tags">
-  <input type="text" name="tags" placeholder="Tag1, tag2, tag3, etc.">
-  <input type="submit" value="Add tags">
-</form>
-
 <ul>
   <% @gist.snippets.each do |snippet| %>
     <li><a href="<%= snippet.raw_url %>"><%= snippet.name %></a></li>
   <% end %>
 </ul>
+
+<form method="post" action="/gists/<%= @gist.id %>/tags">
+  <input type="text" name="tags" placeholder="Tag1, tag2, tag3, etc.">
+  <input type="submit" value="Add tags">
+</form>
