@@ -1,17 +1,34 @@
-// $(document).ready(function() {
+$(document).ready(function() {
+    var $gistBox = $('.gist-box');
+    var $snippetBox = $('.snippet-box');
 
-//   githubToken = 'token ' + $(".gists").attr("id");
+  $('.tag-box').on('click', 'a', function(e) {
+    e.preventDefault();
 
-//   indexRequest = $.ajax({
-//     url: "https://api.github.com/users/mwgalloway/gists",
-//     headers: { Authorization: githubToken }
-//   })
+    var $tagLink = $(this);
 
-//   indexRequest.done(function(indexResponse){
-//     indexResponse.forEach(function(gist){
+    $.ajax({
+      url: $tagLink.attr('href')
+    })
+    .done(function(response) {
+      $gistBox.empty();
+      $snippetBox.empty();
+      $gistBox.append(response);
+    })
+  })
 
-//     })
-//   })
+  $gistBox.on('click', 'a', function(e) {
+    e.preventDefault();
 
+    var $gistLink = $(this);
 
-// });
+    $.ajax({
+      url: $gistLink.attr('href')
+    })
+    .done(function(response) {
+      $snippetBox.empty();
+      $snippetBox.append(response);
+    })
+  })
+
+});
