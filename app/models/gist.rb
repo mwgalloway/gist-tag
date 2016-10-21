@@ -1,8 +1,9 @@
 class Gist < ActiveRecord::Base
-
-  validates :github_id, presence: true, uniqueness: true
+  has_many  :gist_tags
+  has_many  :tags, through: :gist_tags
   has_many  :snippets
 
+  validates :github_id, presence: true, uniqueness: true
 
   def set_description(gist)
     if gist.description.empty?
