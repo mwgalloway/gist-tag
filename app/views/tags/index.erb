@@ -1,5 +1,6 @@
 <ul class="tags">
+  <li><a href="/gists">All gists</a> - <%= @gists.count %> gists</li>
   <% @tags.each do |tag| %>
-  <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a> -<%= tag.gists.count %> gists</li>
+  <li><a href="/tags/<%= tag.id %>"><%= tag.name %></a> - <%= tag.gists.count %> gists</li>
   <% end %>
 </ul>
