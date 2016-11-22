@@ -1,5 +1,7 @@
 get '/sessions/new' do
-  erb :'/sessions/new'
+  client = Octokit::Client.new
+  url = client.authorize_url(ENV["CLIENT_ID"], :scope => 'gist')
+  redirect url
 end
 
 post '/sessions' do
